@@ -8,7 +8,8 @@ ADD run.sh /tmp/run.sh
 RUN  \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F7B8CEA6056E8E56 \
   && echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.list.d/rabbitmq.list \
-  && apt-get update -y \
+  && apt-get update \
+  && apt-get upgrade -y \
   && apt-get -y install rabbitmq-server \
   && rabbitmq-plugins enable rabbitmq_management \
   && rm -rf /var/lib/apt/lists/*
